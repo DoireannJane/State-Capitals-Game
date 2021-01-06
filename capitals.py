@@ -166,19 +166,31 @@ test_list = [
 }]
 
 
-
-
 random.shuffle(test_list)
 for state in test_list:
     state.update({'correct':0, 'incorrect':0}) 
 def add_points():
     state['correct']+=1 
     print(f"correct! you have {state['correct']} right and {state['incorrect']} wrong")
+    if state['correct'] + state['incorrect'] == 3:
+        play_again = input(f"You got {state['correct']} correct and {state['incorrect']} wrong. Would you like to play again?")
+        state.update({'correct':0, 'incorrect':0}) 
+        if play_again == "yes":
+            game_start()
+        else:
+            print("Thank you for playing!")
 def sad_points():
     state['incorrect']+=1
     print(f"incorrect! you have {state['correct']} right and {state['incorrect']} wrong")
-
+    if state['correct'] + state['incorrect'] == 3:
+        play_again = input(f"You got {state['correct']} correct and {state['incorrect']} wrong. Would you like to play again?")
+        if play_again == "yes":
+            state.update({'correct':0, 'incorrect':0}) 
+            game_start()
+        else:
+            print("Thank you for playing!")
 def game_start():
+    random.shuffle(test_list)
     print("Do you know your capitals?")
     for state in test_list:
         capital = input(f"what is the capital of {state['name']}?")
@@ -186,7 +198,12 @@ def game_start():
             add_points()    
         else: 
             sad_points() 
-            
+       
+ # play_again = input(f"You got {state['correct']} correct and {state['incorrect']} wrong. Would you like to play again?")
+        # if play_again == "yes":
+        #     game_start()
+        # else:
+        #     print("Thank you for playing!")        
 
 game_start()
 
