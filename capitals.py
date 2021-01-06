@@ -175,10 +175,11 @@ for state in test_list:
     capital = input(f"what is the capital of {state['name']}?")
     if capital == f"{state['capital']}":
         state['correct']+=1    
-        print("correct")
+        print(f"correct! you have {state['correct']} right and {state['incorrect']} wrong")
     else: 
         state['incorrect']+=1  
-        print("incorrect")
+        print("incorrect! you have {state['correct']} right and {state['incorrect'] wrong}")
+
 
 
 
