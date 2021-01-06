@@ -171,17 +171,22 @@ test_list = [
 random.shuffle(test_list)
 for state in test_list:
     state.update({'correct':0, 'incorrect':0}) 
+def add_points():
+    state['correct']+=1 
+    print(f"correct! you have {state['correct']} right and {state['incorrect']} wrong")
+def sad_points():
+    state['incorrect']+=1
+    print(f"incorrect! you have {state['correct']} right and {state['incorrect']} wrong")
 
 def game_start():
     print("Do you know your capitals?")
     for state in test_list:
         capital = input(f"what is the capital of {state['name']}?")
         if capital == f"{state['capital']}":
-            state['correct']+=1    
-            print(f"correct! you have {state['correct']} right and {state['incorrect']} wrong")
+            add_points()    
         else: 
-            state['incorrect']+=1  
-            print(f"incorrect! you have {state['correct']} right and {state['incorrect']} wrong")
+            sad_points() 
+            
 
 game_start()
 
