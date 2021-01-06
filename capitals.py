@@ -165,24 +165,27 @@ test_list = [
     "capital": "Austin"
 }]
 
-print("Do you know your capitals?")
-# capital = input(f"what is the capital of {state['name']}?")
+
+
+
 random.shuffle(test_list)
 for state in test_list:
     state.update({'correct':0, 'incorrect':0}) 
 
-for state in test_list:
-    capital = input(f"what is the capital of {state['name']}?")
-    if capital == f"{state['capital']}":
-        state['correct']+=1    
-        print(f"correct! you have {state['correct']} right and {state['incorrect']} wrong")
-    else: 
-        state['incorrect']+=1  
-        print(f"incorrect! you have {state['correct']} right and {state['incorrect']} wrong")
+def game_start():
+    print("Do you know your capitals?")
+    for state in test_list:
+        capital = input(f"what is the capital of {state['name']}?")
+        if capital == f"{state['capital']}":
+            state['correct']+=1    
+            print(f"correct! you have {state['correct']} right and {state['incorrect']} wrong")
+        else: 
+            state['incorrect']+=1  
+            print(f"incorrect! you have {state['correct']} right and {state['incorrect']} wrong")
 
+game_start()
 
-
-
+# capital = input(f"what is the capital of {state['name']}?")
 
 # state['correct']= state['correct']+1
 # .update()
