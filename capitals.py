@@ -178,7 +178,7 @@ for state in test_list:
         print(f"correct! you have {state['correct']} right and {state['incorrect']} wrong")
     else: 
         state['incorrect']+=1  
-        print("incorrect! you have {state['correct']} right and {state['incorrect'] wrong}")
+        print(f"incorrect! you have {state['correct']} right and {state['incorrect']} wrong")
 
 
 
