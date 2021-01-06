@@ -168,18 +168,22 @@ test_list = [
 print("Do you know your capitals?")
 # capital = input(f"what is the capital of {state['name']}?")
 random.shuffle(test_list)
+for state in test_list:
+    state.update({'correct':0, 'incorrect':0}) 
 
 for state in test_list:
     capital = input(f"what is the capital of {state['name']}?")
-if capital == f"{state['capital']}":    
-    print("correct")
-else: 
-    print("incorrect")
+    if capital == f"{state['capital']}":
+        state['correct']+=1    
+        print("correct")
+    else: 
+        state['incorrect']+=1  
+        print("incorrect")
 
 
 
 
-
+# state['correct']= state['correct']+1
 # .update()
 # for index in test_list:
 
